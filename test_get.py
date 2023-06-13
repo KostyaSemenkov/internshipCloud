@@ -1,8 +1,8 @@
 import requests
-import  pytest
 
 
 class TestGet:
+    '''Проверка 3 валидных и 1 невалидного запроса Get'''
     url = 'https://jsonplaceholder.typicode.com/posts'
 
     def test_get_2(self):
@@ -43,3 +43,9 @@ class TestGet:
         assert res.status_code == 200
         body_actual = res.json()
         assert body_actual[0] == body_expected
+
+    def test_get_102(self):
+        res_len = len(requests.get(self.url).json()) # Вычисляем актуальную длину списка данных
+        len_for_not_valid = str(res_len + 1) # Добавляем к длине списка данных еденицу, чтобы всегда был невалидный запрос
+        res = requests.get(f'https://jsonplaceholder.typicode.com/posts/{len_for_not_valid}')
+        assert res.status_code == 404

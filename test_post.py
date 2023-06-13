@@ -2,7 +2,7 @@ import requests
 
 
 class TestPost():
-
+    '''Проверка валидного запроса и запроса с пустым body'''
     url = 'https://jsonplaceholder.typicode.com/posts'
     data = {
         "userId": "11",
@@ -21,5 +21,4 @@ class TestPost():
         res = requests.post(self.url)
         assert res.status_code == 201
         assert res.json() == self.data_empty
-
 
