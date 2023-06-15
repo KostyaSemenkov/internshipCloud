@@ -1,6 +1,8 @@
+import allure
 import requests
 
 
+@allure.epic('Проверка метода post')
 class TestPost():
     '''Проверка валидного запроса и запроса с пустым body'''
     url = 'https://jsonplaceholder.typicode.com/posts'
@@ -12,11 +14,13 @@ class TestPost():
     }
     data_empty = {'id': 101}
 
+    @allure.description('Внесение новой записи')
     def test_valid_post(self):
         res = requests.post(self.url, data=self.data)
         assert res.status_code == 201
         assert res.json() == self.data
 
+    @allure.description('Внесение пустой записи')
     def test_empty_post(self):
         res = requests.post(self.url)
         assert res.status_code == 201

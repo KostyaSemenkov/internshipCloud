@@ -1,10 +1,13 @@
+import allure
 import requests
 
 
+@allure.epic('Проверка метода get')
 class TestGet:
     '''Проверка 3 валидных и 1 невалидного запроса Get'''
     url = 'https://jsonplaceholder.typicode.com/posts'
 
+    @allure.description('Запрос 2 записи')
     def test_get_2(self):
         body_expected = {
                 "userId": 1,
@@ -18,6 +21,7 @@ class TestGet:
         body_actual = res.json()
         assert body_actual[0] == body_expected
 
+    @allure.description('Запрос 51 записи')
     def test_get_51(self):
         body_expected = {
             "userId": 6,
@@ -31,6 +35,7 @@ class TestGet:
         body_actual = res.json()
         assert body_actual[0] == body_expected
 
+    @allure.description('Запрос 100 записи')
     def test_get_100(self):
         body_expected = {
             "userId": 10,
@@ -44,6 +49,7 @@ class TestGet:
         body_actual = res.json()
         assert body_actual[0] == body_expected
 
+    @allure.description('Запрос несуществующей записи')
     def test_get_102(self):
         res_len = len(requests.get(self.url).json()) # Вычисляем актуальную длину списка данных
         len_for_not_valid = str(res_len + 1) # Добавляем к длине списка данных еденицу, чтобы всегда был невалидный запрос
