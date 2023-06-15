@@ -1,0 +1,5 @@
+
+1 Запустить командную строку либо открыть терминал
+2 ввести Команду git clone https://github.com/KostyaSemenkov/internshipCloud
+3 ввести команду docker build -t pytest_runner .
+4 ввести команду docker run --rm --mount type=bind,src={Путь до папки интерклауд}\internshipCloud,target=/tests_project/ pytest_runner
