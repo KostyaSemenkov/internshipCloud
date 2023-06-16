@@ -1,3 +1,4 @@
+import vars
 import requests
 import allure
 
@@ -5,17 +6,14 @@ import allure
 @allure.epic('Проверка метода delete')
 class TestDelete:
     '''Проверка удаления обьекта'''
-    url1 = 'https://jsonplaceholder.typicode.com/posts/1'
-    url_100 = 'https://jsonplaceholder.typicode.com/posts/100'
 
     @allure.description('Удаление первой записи')
     def test_delete(self):
-        res = requests.delete(self.url1)
+        res = requests.delete(vars.url_1)
         assert res.status_code == 200
         assert res.json() == {}
 
-    @allure.description('Удаление последней записи записи')
+    @allure.description('Удаление последней записи')
     def test_empty_delete(self):
-        res = requests.delete(self.url_100)
-        assert res.status_code == 200
-        assert res.json() == {}
+        res = requests.delete(vars.url,data=vars.data_101)
+        assert res.status_code == 404
