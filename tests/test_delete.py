@@ -13,7 +13,7 @@ class TestDelete:
         assert res.status_code == 200
         assert res.json() == {}
 
-    @allure.description('Удаление последней записи')
+    @allure.description('Удаление пустой записи')
     def test_empty_delete(self):
         res = requests.delete(vars.url,data=vars.data_101)
         assert res.status_code == 404
