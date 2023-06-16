@@ -5,7 +5,7 @@ import allure
 
 @allure.epic('Проверка метода delete')
 class TestDelete:
-    '''Проверка удаления обьекта'''
+    '''Проверка удаления записи'''
 
     @allure.description('Удаление первой записи')
     def test_delete(self):
