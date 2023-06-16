@@ -1,4 +1,5 @@
 import vars
+
 import requests
 import allure
 

@@ -1,4 +1,4 @@
-'''Переменные для метода DELITE'''
+'''Переменные для метода DELETE'''
 url = 'https://jsonplaceholder.typicode.com/posts'
 url_1 = 'https://jsonplaceholder.typicode.com/posts/1'
 data_1 = {"id": 1}
