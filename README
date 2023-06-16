@@ -1,5 +1,12 @@
+Файл по первому заданию называется "Процесс тестирования нового функционала." и его надо будет скачать
 
+Для запуска всех тестов в IDE PyCharm следует: 1) Установить библиотеки из файла "requirements.txt" с помощью команды "pip3 install -r requirements.txt"
+                                               2) Запустить тесты командой "pytest tests"
+                                               3) Для получения отчета в Allure использовать команду "python -m pytest --alluredir=test_result/ tests" и "allure serve test_result"
+
+
+Для использования докер файла:
 1 Запустить командную строку либо открыть терминал
 2 ввести Команду git clone https://github.com/KostyaSemenkov/internshipCloud
 3 ввести команду docker build -t pytest_runner .
-4 ввести команду docker run --rm --mount type=bind,src={Путь до папки интерклауд}\internshipCloud,target=/tests_project/ pytest_runner
+4 ввести команду docker run --rm --mount type=bind,src={Путь до папки internshipCloud},target=/tests_project/ pytest_runner
